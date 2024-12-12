@@ -1,0 +1,43 @@
+/* Responsive rules for cdm_flasks */
+
+@media (max-width: 600px) {
+	#cdm_flasks {
+		width: 90%;
+	}
+
+	#cdm_flasks *[cdm_flask] {
+		width: calc(25% - 20px);
+	}
+
+	#cdm_flasks *[cdm_flask] img[class^='flask'] {
+		opacity: 0;
+	}
+
+	#cdm_flasks *[cdm_flask] img[class^='logo'] {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 90%;
+		aspect-ratio: 1 / 1;
+	}
+
+	#cdm_flasks *[cdm_flask]::before {
+		opacity: 0;
+	}
+
+	#cdm_flasks *[cdm_flask]::after {
+		position: absolute;
+		top: unset;
+		transform: unset;
+		bottom: 0;
+		right: 5px;
+		font-size: 1rem;
+		text-align: right;
+		color: #00ffff;
+		text-shadow: 0 0 0px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #00ffff,
+			0 0 5px #00ffff, 0 0 6px #00ffff;
+		padding: unset;
+		background-color: unset;
+	}
+}

@@ -1,0 +1,120 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: transparent;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+body::before {
+	background-image: url('../public/imgs/bg.jpeg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: blur(5px);
+	content: '';
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 105%;
+	height: 105%;
+	overflow: hidden;
+	z-index: -1;
+	background-attachment: fixed;
+}
+
+.container {
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	min-height: calc(100vh - 40px);
+	width: 100%;
+}
+
+.cdm_buttons {
+	padding: 5px;
+	display: flex;
+	gap: 10px;
+}
+
+.menu-subtitle-btn {
+	text-align: center;
+	color: white;
+	font-size: 0.5rem;
+	cursor: pointer;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: calc(100% - 20px);
+	padding: 5px;
+	margin: 10px 5px;
+}
+
+.menu-subtitle-btn::before,
+.menu-subtitle-btn::after {
+	pointer-events: none;
+	content: '▼';
+	position: absolute;
+	font-size: 1em;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.menu-subtitle-btn[active]::before,
+.menu-subtitle-btn[active]::after {
+	content: '▲';
+}
+
+.menu-subtitle-btn::before {
+	left: 10px;
+}
+
+.menu-subtitle-btn::after {
+	right: 10px;
+}
+
+.menu-subtitle:not([active]) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	opacity: 0;
+	height: 0;
+}
+
+.menu-subtitle {
+	display: flex; /* Ensure flex properties are consistently applied */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.menu-subtitle {
+	transition: all 0.3s ease-in-out;
+}
+
+.menu-subtitle[active] {
+	display: flex;
+}
+
+.menu-subtitle:not([active]) {
+	display: none;
+}

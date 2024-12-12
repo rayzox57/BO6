@@ -1,0 +1,104 @@
+#cdm_traps {
+	width: 450px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+	box-sizing: border-box;
+	background-image: url('../public/imgs/traps/bg.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+#cdm_traps *[cdm_trap] {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: calc(100% / 2 - 20px);
+	aspect-ratio: 1 / 1;
+	margin: 10px;
+	background-image: url('../public/imgs/traps/bg.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: transform 0.3s ease-in-out;
+}
+
+#cdm_traps:not([lock]) *[cdm_trap] {
+	cursor: pointer;
+}
+
+#cdm_traps[lock] {
+	cursor: not-allowed;
+}
+
+#cdm_traps *[cdm_trap] img {
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#cdm_traps *[cdm_trap] img[class^='logo'] {
+	transform: translate(-50%, -50%);
+	height: 100%;
+}
+
+#cdm_traps *[cdm_trap] img[class='logo-glow'] {
+	filter: blur(5px);
+}
+
+#cdm_traps *[cdm_trap] {
+	counter-increment: data-id 0;
+	counter-reset: data-id var(--data-order);
+}
+
+#cdm_traps *[cdm_trap]::before,
+#cdm_traps *[cdm_trap]::after {
+	z-index: 1;
+	content: counter(data-id, upper-roman);
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+	font-size: 1rem;
+	text-align: right;
+}
+
+#cdm_traps *[cdm_trap]:nth-child(2) {
+	counter-increment: data-id 1;
+}
+
+#cdm_traps *[cdm_trap]:nth-child(3) {
+	counter-increment: data-id -1;
+}
+
+#cdm_traps *[cdm_trap]::before {
+	-webkit-text-stroke: 6px #ff0000;
+	filter: blur(2px);
+}
+
+#cdm_traps *[cdm_trap]::after {
+	color: white;
+}
+
+#cdm_traps *[cdm_trap][hover='true'] {
+	transform: scale(0.9);
+}
+
+#cdm_traps *[cdm_trap][clone='true'] {
+	z-index: 99;
+}
+
+#cdm_traps *[cdm_trap][clone='true']::before,
+#cdm_traps *[cdm_trap][clone='true']::after {
+	content: '';
+}
+
+#cdm_traps *[cdm_trap][dragged='true'] {
+	opacity: 0.5;
+	border: 1px dashed #000000;
+}

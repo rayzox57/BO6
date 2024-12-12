@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Base HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/index.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_flasks.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_flasks_responsive.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_raven.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_traps.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_traps_responsive.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_orbs.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cdm_orbs_responsive.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="menu-subtitle-btn" to="cdm_flasks_container">
+            <h1>The Flasks</h1>
+        </div>
+
+        <div class="menu-subtitle" to="cdm_flasks_container">
+
+            <div id="cdm_flasks"></div>
+
+            <div class="cdm_buttons">
+                <button id="cdm_flask_lock">Lock</button>
+                <button id="cdm_flask_copy">Copy to clipboard</button>
+                <button id="cdm_flask_paste">Paste from clipboard</button>
+            </div>
+            <div id="cdm_flask">
+                <img class="flask-glow" src="./public/imgs/flasks/base2.png" />
+                <img class="flask-glow" src="./public/imgs/flasks/base2.png" />
+                <img class="flask" src="./public/imgs/flasks/base2.png" />
+                <img class="logo-glow" />
+                <img class="logo-glow-2" />
+                <img class="logo" />
+            </div>
+
+        </div>
+
+        <div class="menu-subtitle-btn" to="cdm_traps_container">
+            <h1>The Traps</h1>
+        </div>
+
+        <div class="menu-subtitle" to="cdm_traps_container">
+
+            <div id="cdm_traps"></div>
+            <div id="cdm_trap">
+                <img class="logo-glow" />
+                <img class="logo-glow-2" />
+            </div>
+
+            <div class="cdm_buttons">
+                <button id="cdm_trap_lock">Lock</button>
+                <button id="cdm_trap_copy">Copy to clipboard</button>
+                <button id="cdm_trap_paste">Paste from clipboard</button>
+            </div>
+
+        </div>
+
+        <div class="menu-subtitle-btn" to="cdm_raven_container">
+            <h1>The Raven</h1>
+        </div>
+
+        <div class="menu-subtitle" to="cdm_raven_container">
+
+            <div id="cdm_raven">
+
+                <img id="cdm_raven_1" selected="true" src="./public/imgs/raven/1.png" />
+                <img id="cdm_raven_2" src="./public/imgs/raven/2.png" />
+                <img id="cdm_raven_3" src="./public/imgs/raven/3.png" />
+                <img id="cdm_raven_4" src="./public/imgs/raven/4.png" />
+                <img id="cdm_raven_5" src="./public/imgs/raven/5.png" />
+                <img id="cdm_raven_bg" src="./public/imgs/raven/back.png" />
+                <div id="cdm_raven_next"></div>
+                <div id="cdm_raven_prev"></div>
+            </div>
+
+        </div>
+
+
+        <div class="menu-subtitle-btn" to="cdm_orbs_container">
+            <h1>Orbs</h1>
+        </div>
+
+        <div class="menu-subtitle" to="cdm_orbs_container">
+
+            <div id="cdm_orbs"></div>
+            <div id="cdm_orb">
+                <div class="cdm_orb_container">
+                    <img class="logo-glow" />
+                    <img class="logo-glow-2" />
+                </div>
+            </div>
+
+            <div class="cdm_buttons">
+                <button id="cdm_orb_lock">Lock</button>
+                <button id="cdm_orb_copy">Copy to clipboard</button>
+                <button id="cdm_orb_paste">Paste from clipboard</button>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="cdm_buttons">
+            <button id="generate_url">Generate Share URL</button>
+            <button id="lock_all">Lock All</button>
+            <button id="unlock_all">Unlock All</button>
+        </div>
+
+    </div>
+
+
+
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/hex.js"></script>
+    <script src="./scripts/dragdrop.js"></script>
+    <script src="./scripts/buildEl.js"></script>
+    <script src="./scripts/cdm_flasks.js"></script>
+    <script src="./scripts/cdm_traps.js"></script>
+    <script src="./scripts/cdm_orbs.js"></script>
+    <script src="./scripts/cdm_raven.js"></script>
+
+</body>
+
+</html>
