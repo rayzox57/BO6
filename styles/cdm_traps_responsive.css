@@ -1,1 +1,5 @@
-/* Responsive rules for cdm_traps */
+@media (max-width: 570px) {
+	#cdm_traps {
+		width: 300px;
+	}
+}
