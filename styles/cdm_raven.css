@@ -1,39 +1,55 @@
 #cdm_raven {
-	width: 450px;
 	aspect-ratio: 1 / 1;
-	margin: 0 auto;
 	position: relative;
+	width: 450px;
+	margin: 0 auto;
 	background-color: black;
 }
 
 #cdm_raven #cdm_raven_next,
 #cdm_raven #cdm_raven_prev {
-	cursor: pointer;
-	position: absolute;
-	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	display: -webkit-box;
 	justify-content: center;
 	align-items: center;
+	position: absolute;
 	top: 45%;
 	transform: translateY(-50%);
-	height: 100px;
 	width: 100px;
+	height: 100px;
+	cursor: pointer;
 }
 
 #cdm_raven #cdm_raven_next::before,
 #cdm_raven #cdm_raven_prev::before {
-	font-size: 4em;
-	position: absolute;
-	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	display: -webkit-box;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	height: 100%;
+	position: absolute;
 	top: 50%;
 	left: 0px;
 	transform: translateY(-50%);
-	color: red;
-	font-weight: bold;
+	width: 100%;
+	height: 100%;
 	background-color: black;
+	font-size: 4em;
+	font-weight: bold;
+	color: red;
 }
 
 #cdm_raven #cdm_raven_next {
@@ -54,25 +70,35 @@
 
 #cdm_raven > #cdm_raven_bg {
 	pointer-events: none;
-	position: relative;
-	display: flex;
+	-o-object-fit: contain;
 	object-fit: contain;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	aspect-ratio: 1 / 1;
+	display: -webkit-box;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 	width: 100%;
-	aspect-ratio: 1 / 1;
 }
 
 #cdm_raven > img:not(#cdm_raven_bg) {
 	pointer-events: none;
+	-o-object-fit: contain;
+	object-fit: contain;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
 	position: absolute;
-	opacity: 0;
+	z-index: 1;
 	top: 0;
 	left: 0;
+	opacity: 0;
 	width: 100%;
 	height: 100%;
-	object-fit: contain;
-	z-index: 1;
 	transition: opacity 0.3s ease-in-out;
 }
 

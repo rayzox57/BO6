@@ -1,14 +1,22 @@
 #cdm_orbs {
-	width: 300px;
-	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	padding: 10px;
-	box-sizing: border-box;
+	position: relative;
 	overflow: hidden;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 300px;
+	padding: 10px;
 }
 
 #cdm_orbs::before {
+	-webkit-filter: brightness(0.5) contrast(2);
+	filter: brightness(0.5) contrast(2);
 	content: '';
 	position: absolute;
 	top: 0;
@@ -16,17 +24,26 @@
 	width: 100%;
 	height: 100%;
 	background-image: url('../public/imgs/orbs/bg.png');
-	background-size: cover;
-	background-position: center;
 	background-repeat: repeat;
-	filter: brightness(0.5) contrast(2);
+	background-position: center;
+	background-size: cover;
 }
 
 #cdm_orbs *[cdm_orb] {
-	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
 	align-items: center;
+	position: relative;
+	width: -webkit-calc(100% / 2 - 20px);
 	width: calc(100% / 2 - 20px);
 	min-height: 95px;
 	margin: 10px;
@@ -34,8 +51,11 @@
 
 #cdm_orbs *[cdm_orb]:nth-child(1),
 #cdm_orbs *[cdm_orb]:nth-child(4) {
-	width: 100%;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	width: 100%;
 }
 
 #cdm_orbs *[cdm_orb]:nth-child(1) {
@@ -48,18 +68,20 @@
 
 #cdm_orbs *[cdm_orb] .cdm_orb_container {
 	pointer-events: none;
+	-webkit-box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.9);
 	box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.9);
-	border-radius: 100%;
-	border: 1px solid #ffffff;
+	aspect-ratio: 1 / 1;
 	position: relative;
 	width: 100%;
-	aspect-ratio: 1 / 1;
+	border: 1px solid #ffffff;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
 }
 
 #cdm_orbs *[cdm_orb]:nth-child(1) .cdm_orb_container,
 #cdm_orbs *[cdm_orb]:nth-child(4) .cdm_orb_container {
-	height: 95px;
 	width: 95px;
+	height: 95px;
 }
 
 #cdm_orbs:not([lock]) *[cdm_orb] {
@@ -75,15 +97,20 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
 #cdm_orbs *[cdm_orb] img[class^='logo'] {
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	height: 80%;
 }
 
 #cdm_orbs *[cdm_orb] img[class='logo-glow'] {
+	-webkit-filter: blur(5px);
 	filter: blur(5px);
 }
 
@@ -94,12 +121,12 @@
 
 #cdm_orbs *[cdm_orb]::before,
 #cdm_orbs *[cdm_orb]::after {
-	z-index: 1;
 	content: counter(data-id, upper-roman);
 	position: absolute;
-	width: 100%;
+	z-index: 1;
 	top: -15px;
 	right: 0;
+	width: 100%;
 	font-size: 1rem;
 	text-align: center;
 }
@@ -121,6 +148,7 @@
 }
 
 #cdm_orbs *[cdm_orb]::before {
+	-webkit-filter: blur(2px);
 	filter: blur(2px);
 }
 
@@ -141,6 +169,8 @@
 }
 
 #cdm_orbs *[cdm_orb][hover='true'] {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
 	transform: scale(0.9);
 }
 

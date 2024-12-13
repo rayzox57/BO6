@@ -1,30 +1,43 @@
 #cdm_traps {
-	width: 450px;
-	position: relative;
-	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-webkit-box-sizing: border-box;
+	display: -webkit-box;
 	flex-wrap: wrap;
-	padding: 10px;
-	box-sizing: border-box;
-	background-image: url('../public/imgs/traps/bg.webp');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	position: relative;
 	overflow: hidden;
+	box-sizing: border-box;
+	width: 450px;
+	aspect-ratio: 1 / 1;
+	padding: 10px;
+	background-image: url('../public/imgs/traps/bg.webp');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 #cdm_traps *[cdm_trap] {
-	position: relative;
-	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	aspect-ratio: 1 / 1;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out;
+	-o-transition: transform 0.3s ease-in-out;
+	display: -webkit-box;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+	width: -webkit-calc(100% / 2 - 20px);
 	width: calc(100% / 2 - 20px);
-	aspect-ratio: 1 / 1;
 	margin: 10px;
+	transition: -webkit-transform 0.3s ease-in-out;
 	background-image: url('../public/imgs/traps/bg.webp');
-	background-size: cover;
-	background-position: center;
 	background-repeat: no-repeat;
-	transition: transform 0.3s ease-in-out;
+	background-position: center;
+	background-size: cover;
 }
 
 #cdm_traps:not([lock]) *[cdm_trap] {
@@ -37,6 +50,8 @@
 
 #cdm_traps *[cdm_trap] img {
 	pointer-events: none;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -44,11 +59,14 @@
 }
 
 #cdm_traps *[cdm_trap] img[class^='logo'] {
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	height: 100%;
 }
 
 #cdm_traps *[cdm_trap] img[class='logo-glow'] {
+	-webkit-filter: blur(5px);
 	filter: blur(5px);
 }
 
@@ -59,9 +77,9 @@
 
 #cdm_traps *[cdm_trap]::before,
 #cdm_traps *[cdm_trap]::after {
-	z-index: 1;
 	content: counter(data-id, upper-roman);
 	position: absolute;
+	z-index: 1;
 	bottom: 0;
 	right: 5px;
 	font-size: 1rem;
@@ -78,6 +96,7 @@
 
 #cdm_traps *[cdm_trap]::before {
 	-webkit-text-stroke: 6px #ff0000;
+	-webkit-filter: blur(2px);
 	filter: blur(2px);
 }
 
@@ -86,6 +105,8 @@
 }
 
 #cdm_traps *[cdm_trap][hover='true'] {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
 	transform: scale(0.9);
 }
 

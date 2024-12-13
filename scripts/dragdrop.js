@@ -44,10 +44,13 @@ class DragDrop {
 				this.container.setAttribute('lock', true);
 			}
 
-			this.lockButton.addEventListener(
-				'click',
-				this.switchLock.bind(this),
-			);
+			this.lockButton.addEventListener('click', () => {
+				const unlockAll = document.getElementById('unlock_all');
+				const lockAll = document.getElementById('lock_all');
+				if (unlockAll) unlockAll.disabled = false;
+				if (lockAll) lockAll.disabled = false;
+				this.switchLock();
+			});
 		}
 
 		if (copyCodeButtonId !== '') {
@@ -373,7 +376,6 @@ class DragDrop {
 		// for each code
 		for (let i = 0; i < codeArray.length; i++) {
 			const id = codeArray[i];
-			console.log('Element id: ' + id);
 			const element = this.container.querySelector(
 				`[${this.copyCodeCustomAttribute}="${id}"]`,
 			);
@@ -445,6 +447,26 @@ class DragDrop {
 			);
 		}
 
+		// Raven raw add
+		const ravenContainer = document.getElementById('cdm_raven');
+		if (ravenContainer) {
+			const selected = ravenContainer.querySelector(
+				'img[selected="true"]',
+			);
+			if (selected) {
+				const ravenId = selected.getAttribute('raven_id');
+				if (ravenId && parseInt(ravenId, 10) >= 0) {
+					url.searchParams.append('cdm_raven_Code', ravenId);
+				}
+			}
+		}
+
+		const ravenButtonLock = document.getElementById('cdm_raven_lock');
+		if (ravenButtonLock) {
+			const lock = ravenButtonLock.innerHTML === 'Unlock';
+			url.searchParams.append('cdm_raven_Lock', lock);
+		}
+
 		if (navigator.clipboard) {
 			navigator.clipboard.writeText(url.href).catch((err) => {
 				alert(`Failed to copy, here is the url: ${url.href}`);
@@ -484,13 +506,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	const buttonUnlockAll = document.getElementById('unlock_all');
 
 	if (buttonLockAll) {
+		// create custom event
+		DragDrop.lockAllEvent = new CustomEvent('btn-lockAll');
 		buttonLockAll.addEventListener('click', () => {
+			// emit custom event
+			document.dispatchEvent(DragDrop.lockAllEvent);
 			DragDrop.lockAll(buttonLockAll, buttonUnlockAll);
 		});
 	}
 
 	if (buttonUnlockAll) {
+		// create custom event
+		DragDrop.unlockAllEvent = new CustomEvent('btn-unlockAll');
 		buttonUnlockAll.addEventListener('click', () => {
+			// emit custom event
+			document.dispatchEvent(DragDrop.unlockAllEvent);
 			DragDrop.unlockAll(buttonLockAll, buttonUnlockAll);
 		});
 	}

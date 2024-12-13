@@ -1,13 +1,13 @@
 const flasks = {};
 
 function init() {
-	for (i = 1; i <= 20; i++) {
-		flasks[i] = {};
-
-		flasks[i][1] = {};
-		flasks[i][1]['target'] = 'img[class^="logo"]';
-		flasks[i][1]['keys_values'] = {};
-		flasks[i][1]['keys_values']['src'] = `./public/imgs/flasks/${i}.png`;
+	for (let i = 1; i <= 20; i++) {
+		flasks[i] = {
+			1: {
+				target: 'img[class^="logo"]',
+				keys_values: { src: `./public/imgs/flasks/${i}.png` },
+			},
+		};
 	}
 
 	let code = '';

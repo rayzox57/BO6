@@ -2,20 +2,22 @@
 *,
 *::before,
 *::after {
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 /* 2. Remove default margin */
 * {
-	margin: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
+	margin: 0;
 }
 
 body {
-	/* 3. Add accessible line-height */
-	line-height: 1.5;
-	/* 4. Improve text rendering */
 	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
 }
 
 /* 5. Improve media defaults */

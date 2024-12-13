@@ -1,13 +1,13 @@
 const traps = {};
 
 function init() {
-	for (i = 1; i <= 4; i++) {
-		traps[i] = {};
-
-		traps[i][1] = {};
-		traps[i][1]['target'] = 'img[class^="logo"]';
-		traps[i][1]['keys_values'] = {};
-		traps[i][1]['keys_values']['src'] = `./public/imgs/traps/${i}.png`;
+	for (let i = 1; i <= 4; i++) {
+		traps[i] = {
+			1: {
+				target: 'img[class^="logo"]',
+				keys_values: { src: `./public/imgs/traps/${i}.png` },
+			},
+		};
 	}
 
 	const builder = new BuildElem('cdm_trap', 'cdm_traps');

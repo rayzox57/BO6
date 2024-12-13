@@ -1,13 +1,13 @@
 const orbs = {};
 
 function init() {
-	for (i = 1; i <= 4; i++) {
-		orbs[i] = {};
-
-		orbs[i][1] = {};
-		orbs[i][1]['target'] = 'img[class^="logo"]';
-		orbs[i][1]['keys_values'] = {};
-		orbs[i][1]['keys_values']['src'] = `./public/imgs/orbs/${i}.png`;
+	for (let i = 1; i <= 4; i++) {
+		orbs[i] = {
+			1: {
+				target: 'img[class^="logo"]',
+				keys_values: { src: `./public/imgs/orbs/${i}.png` },
+			},
+		};
 	}
 
 	const builder = new BuildElem('cdm_orb', 'cdm_orbs');
